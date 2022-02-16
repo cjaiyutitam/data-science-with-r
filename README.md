@@ -25,6 +25,8 @@ ssh -N -f -Y -L 8888:localhost:8888 dtang@192.168.1.42
 ## lib packages
 
 ```R
+options(encoding = "UTF-8")
+
 # check the default library paths
 .libPaths()
 [1] "/usr/local/lib/R/site-library" "/usr/local/lib/R/library"
