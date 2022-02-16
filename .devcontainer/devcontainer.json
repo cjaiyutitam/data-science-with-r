@@ -1,0 +1,40 @@
+{
+  // Set *default* container specific settings.json values on container create.
+  "settings": {
+    "terminal.integrated.profiles.linux": {
+      "sh": {
+        "path": "/usr/bin/bash"
+      }
+    }
+  },
+
+  "name": "rstudio",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": ".."
+  },
+  "initializeCommand": "docker build -t rstudio .",
+
+  "containerEnv": {
+    "PASSWORD": "password"
+  },
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [8787],
+
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": ["Ikuyadeu.r"],
+  // "runArgs": ["--mount", "type=volume,target=/workspace/node_modules"],
+  "runArgs": [
+    "-e",
+    "USERID=$(id -u)",
+    "-e",
+    "GROUPID=$(id -g)",
+    "--name",
+    "rstudio_server"
+  ],
+  "mounts": [
+    "source=${localWorkspaceFolder}/,target=/home/rstudio/,type=bind,consistency=cached"
+  ],
+  "workspaceFolder": "/home/rstudio/"
+}

@@ -4,6 +4,7 @@ RUN apt-get clean all && \
     apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y \
+    git \
     libhdf5-dev \
     libcurl4-gnutls-dev \
     libssl-dev \
