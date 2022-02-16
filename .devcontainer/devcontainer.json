@@ -13,14 +13,14 @@
     "dockerfile": "../Dockerfile",
     "context": ".."
   },
-  "initializeCommand": "docker build -t rstudio .",
+  // "initializeCommand": "docker build -t rstudio .",
 
   "containerEnv": {
     "PASSWORD": "password"
   },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [8787],
+  "forwardPorts": ["8787:8787"],
 
   // Add the IDs of extensions you want installed when the container is created.
   "extensions": ["Ikuyadeu.r"],
